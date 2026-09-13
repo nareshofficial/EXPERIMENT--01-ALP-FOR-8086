@@ -1,4 +1,9 @@
 # EXPERIMENT--01-ALP-FOR-8086
+# Name : NARESH PS
+
+# Roll no : 212223040127
+
+
 
 
 
@@ -50,172 +55,94 @@ Running The Emulator (emu8086) Intro 8086 Microprocessor Emulator, also known as
 ![image](https://user-images.githubusercontent.com/36288975/189273273-9bb36ec1-e2e8-4892-8d35-37707332bfdc.png)
 
 
-
-
-
-
-
-
-10.	If no errors are found click on run the program and check the status of various flags in the flags tab as shown below 
-
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/36288975/189273277-113a2a33-4a40-4ff8-95a5-ecd3a1f504fe.png)
-
-
-
-
-
-
-
 ## Programs for arithmetic  operations
 
-## Addition  of 16 bit ALP 
-
- ```
-
-mov Ax, 5782H
-mov Bx, 23ABH
-add Ax,Bx
-mov [3001H],Ax
-hlt
-
+## Addition  of 8 bit ALP 
 ```
+org 100h
+
+MOV CL,00H
+MOV AL,[4200H]
+MOV BL,[4201H]
+ADD AL,BL
+JNC L
+INC CL
+L:MOV [4202H],AL
+MOV [4203H],CL
+
+ret
+```
+
+
+
+
 
 
 ## Output  
-
-<img width="1640" height="827" alt="image" src="https://github.com/user-attachments/assets/79bdc80a-48e2-450f-958d-13c1966872b6" />
-
-
- 
-## Subtraction   of 16 bit numbers  ALP 
-
- ```
+![Screenshot (755)](https://github.com/user-attachments/assets/d528e05c-e16a-481d-ab30-4d82798a6c21)
 
 
-mov Ax, 5782H
-mov Bx, 23ABH
-sub Ax,Bx
-mov [3003H],Ax
-hlt
-
-
+## Multiplication alp 
 ```
+org 100h
 
-## Output
+MOV AL,[4400H]
+MOV BL,[4401H]
+MUL BL
+MOV [4402H],AL
+MOV [4403H],AH
 
-
-
-<img width="1643" height="837" alt="image" src="https://github.com/user-attachments/assets/4e48b92b-b9d6-4a83-9f45-84f439ffc550" />
-
-## Multiplication  of 16 bit numbers  ALP 
-
-
+ret
 ```
-
-mov Ax, 5782H
-mov Bx, 23ABH
-mul Bx
-mov [3005H],Ax 
-mov [3007H], Dx
-hlt
-
-```
-
  ## Output  
+![Screenshot (757)](https://github.com/user-attachments/assets/e8f25332-db6c-4f26-9b76-71f7eee0a9b7)
 
-<img width="1635" height="821" alt="image" src="https://github.com/user-attachments/assets/d4136850-9102-4558-b8ee-28f2e03c9dbd" />
 
-
-## Division  of 16 bit numbers  ALP 
+## Division alp
+```
+org 100h
+MOV AL,[4500H]
+MOV BL,[4501H]
+DIV BL
+MOV [4502H],AX
+ret
 
 ```
-mov Ax,5782H
-mov Bx,23ABH
-div Bx
-mov [3009H],Ax
-mov [300BH],Dx
-hlt
-
-```
-
-
 ## Output  
+![Screenshot (758)](https://github.com/user-attachments/assets/3bb46e6e-cd97-4727-aba0-2c92673df97f)
 
-<img width="1640" height="808" alt="image" src="https://github.com/user-attachments/assets/4e59e057-ea95-4c4a-b867-eb93809546f7" />
-
-
-## AND of 16 bit numbers ALP
+## Logical Operation
 ```
-
-mov Ax,5782H
-mov Bx,23ABH
-and Ax,Bx
-mov [4001H],Ax
-hlt
-
+org 100h
+MOV AX,0A32H
+MOV BX,0B31H
+MOV SI,5000H
+OR AX,BX
+MOV [SI],AX
+MOV AX,0A32H
+AND AX,BX
+MOV [SI+2],AX
+MOV AX,0A32H
+XOR AX,BX
+MOV [SI+4],AX
+MOV AX,0A32H
+NOT AX
+MOV [SI+6],AX
+ret
 ```
-## OUTPUT
+## Output
+![Screenshot (768)](https://github.com/user-attachments/assets/bd5a96c9-c995-4b2d-a864-0439b6c91157)
 
-<img width="1216" height="626" alt="image" src="https://github.com/user-attachments/assets/7cb3a4cf-5c04-4794-9b39-e742f7fd894d" />
-
-
-
-## OR of 16 bit numbers ALP
-
-```
-
-mov Ax,5782H
-mov Bx,23ABH
-or Ax,Bx
-mov [4003H],Ax
-hlt
-
-```
-
-## OUTPUT
-
-
-<img width="1427" height="703" alt="image" src="https://github.com/user-attachments/assets/04e9b7ce-65d2-462e-b6a4-baf0c262adba" />
-
-## NOT of 16 bit number ALP
-
-```
-
-mov Ax,5782H
-not Ax
-mov [4005H],Ax
-hlt
-
-```
-
-## OUTPUT 
-
-<img width="1427" height="718" alt="image" src="https://github.com/user-attachments/assets/25a8428d-f923-48d9-85e3-68f5d591b568" />
-
-
-## XOR of 16 bit numbers ALP
-
-```
-
-mov Ax,5782H
-mov Bx,23ABH
-xor Ax,Bx
-mov [4007H],Ax
-hlt
-```
-
-## OUTPUT
-
-<img width="1431" height="726" alt="image" src="https://github.com/user-attachments/assets/b0e240fc-c2e0-4403-ab84-e59785a9699e" />
 
 ## Result :
+Thus , the fundamental Arithmetic and Logical operations are excuted successfully.
  
-The execution of ALP on fundamental arithmetic and logical operations is successfully completed.
+
+
+
+
+
+
 
 
 
